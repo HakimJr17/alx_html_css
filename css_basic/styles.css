@@ -1,0 +1,168 @@
+/*
+ * styles.css
+ *
+ * This file defines the styling for the portfolio pages, primarily
+ * focusing on creating a responsive layout using CSS Flexbox.
+ */
+
+/*
+ * Body container setup for Flexbox.
+ * - display: flex makes the body a flex container.
+ * - flex-direction: column arranges its direct children (header, main, footer)
+ * in a vertical column.
+ * - min-height: 100vh ensures the body takes at least the full viewport height,
+ * allowing flex items to distribute space properly.
+ * - margin: 0 removes default browser margins.
+ */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Inter", sans-serif; /* Recommended font */
+}
+
+/*
+ * Main container setup for Flexbox.
+ * - display: flex makes the main element a flex container.
+ * - flex-direction: row arranges its direct children (article, aside)
+ * in a horizontal row.
+ * - flex: auto allows the main element to grow and shrink,
+ * taking up available space within the body column, while maintaining
+ * its intrinsic size.
+ */
+main {
+    display: flex;
+    flex-direction: row;
+    flex: auto; /* Allows main to take up available vertical space */
+}
+
+/*
+ * Article styling for Flexbox and scrolling.
+ * - flex: 2 makes the article take up 2 units of available space (2/3 of main's width).
+ * - overflow-y: auto enables vertical scrolling if content overflows its height.
+ * - padding: 1rem adds some internal spacing.
+ * - background-color and border for visual distinction.
+ * - rounded corners for aesthetic appeal.
+ */
+article {
+    flex: 2; /* Article takes 2/3 of the main content area */
+    overflow-y: auto; /* Enable vertical scrolling for article content */
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    margin: 0.5rem; /* Add margin around the article */
+}
+
+/*
+ * Aside styling for Flexbox and scrolling.
+ * - flex: 1 makes the aside take up 1 unit of available space (1/3 of main's width).
+ * - overflow-y: auto enables vertical scrolling if content overflows its height.
+ * - padding: 1rem adds some internal spacing.
+ * - background-color and border for visual distinction.
+ * - rounded corners for aesthetic appeal.
+ */
+aside {
+    flex: 1; /* Aside takes 1/3 of the main content area */
+    overflow-y: auto; /* Enable vertical scrolling for aside content */
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    margin: 0.5rem; /* Add margin around the aside */
+}
+
+/*
+ * Basic styling for header and footer.
+ * - padding for spacing.
+ * - background-color and text color for visual distinction.
+ * - text-align: center to center the text.
+ * - rounded corners for aesthetic appeal.
+ */
+header, footer {
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    border-radius: 0.5rem;
+    margin: 0.5rem; /* Add margin around header and footer */
+}
+
+/*
+ * Navigation bar styling.
+ * - background-color for visual distinction.
+ * - padding for spacing.
+ * - rounded corners.
+ */
+nav {
+    background-color: #444;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin: 0.5rem;
+}
+
+/*
+ * Navigation list styling.
+ * - list-style: none removes bullet points.
+ * - padding and margin set to 0.
+ * - display: flex and justify-content: center for horizontal alignment of items.
+ */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Space between navigation items */
+}
+
+/*
+ * Navigation links styling.
+ * - text-decoration: none removes underlines.
+ * - color for text.
+ * - hover effect for interactivity.
+ */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+}
+
+/* Project article styling for better presentation */
+.project {
+    background-color: #fff;
+    border: 1px solid #eee;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Link styling within project articles */
+.project a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project a:hover {
+    text-decoration: underline;
+}
+
+/* General styling for headings */
+h1, h2, h3 {
+    color: #333;
+}
+
+/* General paragraph styling */
+p {
+    line-height: 1.6;
+    color: #555;
+}
