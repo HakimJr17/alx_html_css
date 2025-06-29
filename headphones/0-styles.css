@@ -1,0 +1,254 @@
+/* General Reset & Body Styles */
+body {
+    margin: 0;
+    /* You'll likely need to define your specific font here.
+       If it's a Google Font, add the @import rule at the very top of this file.
+       Example: font-family: 'YourChosenFont', sans-serif;
+    */
+    font-family: Arial, sans-serif; /* Placeholder: Replace with your desired font from Figma */
+    color: #fff; /* Default text color for hero section content */
+    background-color: #f5f5f5; /* Background for the rest of the page, outside the hero */
+    line-height: 1.5; /* Default line height for better readability */
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+}
+
+/* Universal box-sizing for all elements (good practice) */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* 1. Max width of the content & centering */
+.main-content-wrapper {
+    max-width: 1000px; /* Sets the maximum width for your content */
+    margin-left: auto;   /* Centers the block element horizontally */
+    margin-right: auto;  /* Centers the block element horizontally */
+    padding: 0 20px;     /* Optional: Adds some horizontal padding to prevent content from touching the edges on larger screens */
+    position: relative; /* Needed for z-index to work correctly with hero overlay */
+    z-index: 2; /* Ensures content is above the hero overlay */
+}
+
+/* Hero Section - Background, Overlay, and Layout */
+.hero-section {
+    position: relative; /* Allows absolute positioning of the overlay */
+    width: 100%;
+    min-height: 800px; /* Adjust height as needed to visually match the Figma design */
+    
+    /* UPDATED BACKGROUND IMAGE PATH - Make sure 'hero_background.jpg' is the correct filename if you renamed it */
+    background: url('images/hero_background.jpg') no-repeat center center/cover;
+    
+    display: flex;
+    flex-direction: column; /* Stacks children (nav and hero content) vertically */
+    justify-content: space-between; /* Pushes nav to top, hero content to middle/bottom, and leaves space for description */
+    padding-top: 40px; /* Padding for the top of the header, above the nav */
+    padding-bottom: 50px; /* Padding for the bottom of the header, below the description */
+    box-sizing: border-box; /* Include padding in min-height calculation */
+}
+
+/* Dark Overlay for the Hero Section */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Black overlay with 60% opacity */
+    z-index: 1; /* Place it above the background image but below the content */
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Spaces logo and nav links */
+    align-items: center; /* Vertically aligns items in the center */
+    margin-bottom: 150px; /* Space between nav and main hero content */
+}
+
+/* Logo Image Styling (This assumes your HTML logo img src is also correct) */
+.navbar .logo img {
+    height: 40px; /* Adjust logo height as per design */
+    width: auto; /* Maintain aspect ratio */
+}
+
+
+.navbar .nav-links {
+    list-style: none; /* Removes bullet points from list items */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Arranges list items horizontally */
+    gap: 30px; /* Space between navigation items */
+}
+
+.navbar .nav-links li {
+    display: inline-block; /* Ensures list items behave like blocks for padding/margin */
+}
+
+.navbar .nav-links a {
+    color: #fff; /* Default link color */
+    text-decoration: none; /* Removes underline from links */
+    font-size: 16px;
+    font-weight: bold; /* Based on the design */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* 2. Links hover/active: #FF6565 */
+.navbar .nav-links a:hover,
+.navbar .nav-links a:active {
+    color: #FF6565; /* Hover/active color */
+}
+
+/* Mobile Menu Icon (Hamburger) - Initially hidden on Desktop */
+.mobile-menu-icon {
+    display: none; /* Hidden by default on desktop */
+    cursor: pointer;
+    flex-direction: column; /* Stacks the spans vertically */
+    gap: 6px; /* Space between the hamburger lines */
+    padding: 5px; /* Makes the clickable area larger */
+}
+
+.mobile-menu-icon span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px; /* Slightly rounded edges for lines */
+}
+
+/* Hero Content - Title, Subtitle, Button */
+.hero-content {
+    text-align: center; /* Centers text and inline-block elements */
+    flex-grow: 1; /* Allows this section to take up available space, pushing description down */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically centers content within its space */
+    align-items: center; /* Horizontally centers content within its space */
+    margin-bottom: 80px; /* Space between hero content and description */
+}
+
+.hero-content h1 {
+    font-size: 50px; /* Adjust font size for the main heading */
+    margin: 0 0 20px 0; /* Top, Right, Bottom, Left margin */
+    line-height: 1.2; /* Better readability for multi-line headings */
+    max-width: 800px; /* Prevents heading from being too wide */
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin: 0 0 30px 0;
+    opacity: 0.9; /* Slightly faded subtitle */
+}
+
+/* Call to Action Button */
+.call-to-action {
+    background-color: #FF6565; /* Button background color */
+    color: #fff;
+    border: none; /* Removes default button border */
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 20px; /* Creates rounded corners */
+    cursor: pointer; /* Changes cursor to a pointer on hover */
+    transition: opacity 0.3s ease; /* Smooth transition for opacity change */
+}
+
+/* 3. Button hover/active: opacity: 0.9 */
+.call-to-action:hover,
+.call-to-action:active {
+    opacity: 0.9; /* Reduces opacity on hover/active */
+}
+
+/* Hero Description Text */
+.hero-description {
+    max-width: 600px; /* Restricts the width of the paragraph */
+    margin: 0 auto; /* Centers the block element horizontally */
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6; /* Better readability */
+    opacity: 0.8; /* Slightly less prominent than main content */
+}
+
+
+/* --- Mobile Styles (Screen width 480px or less) --- */
+/* 4. The webpage must switch to the mobile version when the screen width is 480px or less */
+@media screen and (max-width: 480px) {
+    /* TEMPORARY TESTING RULE: If your phone screen turns blue, the media query is working.
+       REMOVE THIS LINE AFTER TESTING! */
+    body {
+        background-color: yellow !important;
+    }
+
+    .hero-section {
+        min-height: 600px; /* Adjust height for mobile */
+        padding-top: 20px; /* Less padding at the top */
+        padding-bottom: 30px; /* Less padding at the bottom */
+        justify-content: flex-start; /* Or keep space-between if you want more dynamic spacing */
+    }
+
+    .main-content-wrapper {
+        padding: 0 15px; /* Adjust padding for smaller screens to give less inner space */
+    }
+
+    /* Mobile Navigation Adjustments */
+    .navbar {
+        flex-wrap: wrap; /* Allow items to wrap to the next line */
+        justify-content: space-between; /* Space logo and menu icon */
+        margin-bottom: 50px; /* Reduce space between nav and hero content for mobile */
+    }
+
+    .navbar .logo {
+        order: 2; /* Places the logo after the hamburger icon */
+        flex-grow: 1; /* Allows logo to take up available space and center */
+        text-align: center; /* Centers the logo within its flex item */
+    }
+
+    .navbar .mobile-menu-icon {
+        display: flex; /* Show the hamburger icon on mobile */
+        order: 1; /* Place it first in the flex order */
+    }
+
+    .navbar .nav-links {
+        display: none; /* Hide navigation links by default on mobile */
+        width: 100%; /* When displayed (via JS), take full width */
+        flex-direction: column; /* Stack links vertically */
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.9); /* Darker background for the opened menu */
+        margin-top: 15px; /* Space below navbar when menu opens */
+        padding: 20px 0; /* Padding inside the opened menu */
+        border-radius: 5px; /* Slightly rounded corners for the menu */
+    }
+
+    .navbar .nav-links li {
+        margin: 10px 0; /* Vertical spacing between menu items */
+    }
+
+    /* JavaScript will toggle this class to show/hide the menu */
+    .navbar .nav-links.active {
+        display: flex; /* Show the menu when 'active' class is applied */
+    }
+
+    /* Mobile Hero Content */
+    .hero-content {
+        margin-bottom: 30px; /* Reduce spacing below hero content */
+        text-align: center; /* Ensure centering */
+    }
+
+    .hero-content h1 {
+        font-size: 36px; /* Smaller font size for mobile heading */
+        margin-bottom: 15px;
+    }
+
+    .hero-content p {
+        font-size: 16px; /* Smaller font size for mobile subtitle */
+        margin-bottom: 25px;
+    }
+
+    .call-to-action {
+        padding: 12px 30px; /* Slightly smaller button padding for mobile */
+        font-size: 16px;
+    }
+
+    /* Hide the longer description text on mobile for cleaner layout */
+    .hero-description {
+        display: none;
+    }
+}
